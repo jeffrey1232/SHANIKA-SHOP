@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiSearch, FiUser, FiHeart, FiShoppingCart, FiMenu } from 'react-icons/fi';
+import { FiSearch, FiUser, FiHeart, FiShoppingCart, FiMenu, FiX } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
 import { motion } from 'framer-motion';
 
-const Header = ({ onMenuClick }) => {
+const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartCount } = useCart();
 
   return (
@@ -117,13 +118,44 @@ const Header = ({ onMenuClick }) => {
             {/* Menu mobile */}
             <motion.button
               whileTap={{ scale: 0.9 }}
-              onClick={onMenuClick}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden p-2.5 rounded-xl text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition-all duration-200"
             >
-              <FiMenu className="text-2xl" />
+              {isMenuOpen ? <FiX className="text-2xl" /> : <FiMenu className="text-2xl" />}
             </motion.button>
           </div>
         </div>
+
+        {/* Menu mobile déroulant */}
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="lg:hidden flex flex-col space-y-3 py-4 border-t border-gray-100"
+          >
+            {[
+              { to: '/', label: 'Accueil' },
+              { to: '/nouveautes', label: 'Nouveautés' },
+              { to: '/robes', label: 'Robes' },
+              { to: '/hauts-blouses', label: 'Hauts & Blouses' },
+              { to: '/pantalons-jupes', label: 'Pantalons & Jupes' },
+              { to: '/vetements-homme', label: 'Vêtements pour homme' },
+              { to: '/accessoires', label: 'Accessoires' },
+              { to: '/promotions', label: 'Promotions' },
+              { to: '/contact', label: 'Contact' },
+            ].map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                onClick={() => setIsMenuOpen(false)}
+                className="px-4 py-2 text-gray-700 hover:text-pink-600 transition-all duration-200 font-medium text-sm"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </motion.div>
+        )}
 
         {/* Barre de recherche mobile */}
         <div className="md:hidden pb-4">
