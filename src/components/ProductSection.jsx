@@ -1,7 +1,17 @@
 import { motion } from 'framer-motion';
 import ProductCard from './ProductCard';
 
-const ProductSection = ({ title, products, onProductClick, onAddToCart }) => {
+const ProductSection = ({ title, products = [], onProductClick, onAddToCart }) => {
+  // Protection contre undefined
+  if (!Array.isArray(products) || products.length === 0) {
+    return (
+      <section className="py-20 bg-white relative overflow-hidden text-center">
+        <h2 className="text-2xl font-semibold text-gray-700 mb-4">{title}</h2>
+        <p className="text-gray-500">Aucun produit à afficher pour le moment.</p>
+      </section>
+    );
+  }
+
   return (
     <section className="py-20 bg-white relative overflow-hidden">
       {/* Effet décoratif subtil */}
@@ -28,7 +38,7 @@ const ProductSection = ({ title, products, onProductClick, onAddToCart }) => {
             className="w-24 h-1 bg-gradient-to-r from-pink-600 to-rose-600 mx-auto rounded-full"
           />
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
           {products.map((product, index) => (
             <motion.div

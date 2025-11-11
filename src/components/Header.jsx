@@ -44,6 +44,7 @@ const Header = ({ onMenuClick }) => {
               { to: '/robes', label: 'Robes' },
               { to: '/hauts-blouses', label: 'Hauts & Blouses' },
               { to: '/pantalons-jupes', label: 'Pantalons & Jupes' },
+              { to: '/vetements-homme', label: 'Vêtements pour homme' },
               { to: '/accessoires', label: 'Accessoires' },
               { to: '/promotions', label: 'Promotions' },
               { to: '/contact', label: 'Contact' },

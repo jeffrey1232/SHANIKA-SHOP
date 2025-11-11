@@ -2,38 +2,10 @@ import { motion } from 'framer-motion';
 import { FiStar } from 'react-icons/fi';
 
 const testimonials = [
-  {
-    id: 1,
-    name: 'Amielle G',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80',
-    rating: 5,
-    text: 'Les robes sont magnifiques 😍 et la livraison rapide ! Je recommande vivement.',
-    location: 'Abidjan',
-  },
-  {
-    id: 2,
-    name: 'Donnelle G',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80',
-    rating: 5,
-    text: 'Qualité exceptionnelle et prix très raisonnables. J\'adore cette boutique !',
-    location: 'Yamoussoukro',
-  },
-  {
-    id: 3,
-    name: 'Mariam S.',
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&q=80',
-    rating: 5,
-    text: 'Service client au top et produits de très bonne qualité. Je suis cliente fidèle !',
-    location: 'Bouaké',
-  },
-  {
-    id: 4,
-    name: 'Aminata T.',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&q=80',
-    rating: 5,
-    text: 'Les vêtements sont élégants et confortables. Parfait pour le quotidien !',
-    location: 'Korhogo',
-  },
+ 
+ 
+  
+  
 ];
 
 const Testimonials = () => {
@@ -46,35 +18,7 @@ const Testimonials = () => {
       </div>
 
       <div className="container mx-auto px-4 lg:px-6 relative z-10">
-        <div className="text-center mb-16">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-block badge-new mb-4"
-          >
-            Témoignages
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 text-gray-900"
-          >
-            Ce que disent nos clientes
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
-          >
-            Découvrez les avis authentiques de nos clientes satisfaites
-          </motion.p>
-        </div>
+        
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonials.map((testimonial, index) => (

@@ -12,6 +12,7 @@ import About from './components/About';
 import Newsletter from './components/Newsletter';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import VetementsHomme from './pages/VetementsHomme';
 import { getNewProducts, getBestSellers, getPromotions } from './data/products';
 
 function HomePage() {
@@ -111,6 +112,7 @@ function App() {
           <Route path="/accessoires" element={<HomePage />} />
           <Route path="/promotions" element={<HomePage />} />
           <Route path="/contact" element={<HomePage />} />
+          <Route path="/vetements-homme" element={<VetementsHomme />} />
         </Routes>
       </Router>
     </CartProvider>
